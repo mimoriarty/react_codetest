@@ -1,0 +1,28 @@
+@import '../../assets/styles/colors';
+@import '../../assets/styles/helpers';
+
+ul {
+  background-color: $color4;
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+
+  .c-list-item {
+    margin-left: 52px;
+    padding-top: 18px;
+
+    &.selected {
+      .c-list-item-status {
+        align-self: center;
+        background-image: url('../../assets/img/ic_checked.svg');
+        height: 24px;
+        margin: -16px 12px 0 0;
+        width: 24px;
+      }
+    }
+
+    .c-list-item-name {
+      padding-bottom: 18px;
+    }
+  }
+}

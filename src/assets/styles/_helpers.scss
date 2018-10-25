@@ -1,0 +1,18 @@
+@import './colors';
+
+.flex-horizontal-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.vertical-container {
+  span {
+    display: block;
+  }
+}
+
+.separator {
+  border-bottom: 1px solid $color2;
+
+}
