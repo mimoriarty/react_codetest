@@ -10,7 +10,7 @@ class Branch extends Component {
         <div className="flex-horizontal-container">
           <div className="vertical-container">
             <span className="c-branch-name">Merkatona</span>
-            <span className="c-branch-postal-info">Comprando en 28005</span>
+            <span className="c-branch-postal-info">Comprando en {this.props.postalCode}</span>
           </div>
           <span className="c-branch-action">CAMBIAR</span>
         </div>
