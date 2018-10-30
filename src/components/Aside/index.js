@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import Branch from '../Branch/index';
+import CONSTANTS from '../../constants';
 
-const url = 'https://api.comprea.com/';
+const url = CONSTANTS.url;
 const getToken = 'user/session';
 const getStores = (token, postalcode) => `user/postalcode?token=${token}&postalcode=${postalcode}`;
+const getMarketData = (markets, id) => markets.find(market => market.id.toString() === id.toString());
 
 class Aside extends Component {
   constructor() {
     super();
     this.state = {
-      data: [],
+      markets: [],
       postalCode: 28010,
+      selectedBranch: 1,
       token: ''
     };
   }
@@ -29,14 +32,19 @@ class Aside extends Component {
 
     this.setState({
       token: tokenData.token,
-      data: storeData.markets
+      markets: storeData.markets
     });
   }
 
   render() {
     return (
       <aside>
-        <Branch postalCode={this.state.postalCode} />
+        { this.state && this.state.markets.length > 0 &&
+          <Branch
+            postalCode={this.state.postalCode}
+            token={this.state.token}
+            branch={getMarketData(this.state.markets, this.state.selectedBranch)}/>
+        }
       </aside>
     );
   }

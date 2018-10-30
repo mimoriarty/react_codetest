@@ -1,45 +1,51 @@
 @import '../../assets/styles/colors';
 @import '../../assets/styles/helpers';
 
-.c-categorie {
-  background-color: $color1;
-  display: flex;
-  font-family: 'SF UI Display Medium';
-  padding: 14px 0 0 12px;
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
 
-  &:active {
-    background-color: $color5;
-
-    .c-categorie-status {
-      background-image: url('../../assets/img/ic_show.svg');
-      transform: rotate(180deg);
+  .c-categorie {
+    background-color: $color1;
+    display: flex;
+    font-family: 'SF UI Display Medium';
+    padding: 14px 0 0 12px;
+  
+    &:active {
+      background-color: $color5;
+  
+      .c-categorie-status {
+        background-image: url('../../assets/img/ic_show.svg');
+        transform: rotate(180deg);
+      }
     }
-  }
-
-  &:hover {
-    background-color: $color4;
-  }
-
-  .c-categorie-status {
-    align-self: center;
-    background-image: url('../../assets/img/ic_checked.svg');
-    cursor: pointer;
-    height: 24px;
-    margin: 0 12px 12px 0;
-    width: 24px;
-  }
-
-  .c-categorie-favorite {
-    align-self: center;
-    height: 19px;
-    margin-right: 12px;
-    padding-bottom: 13px;
-    width: 19px;
-  }
-
-  .c-categorie-name {
-    color: $color3;
-    font-family: 'SF UI Display Light';
-    font-size: 18px;
+  
+    &:hover {
+      background-color: $color4;
+    }
+  
+    .c-categorie-status {
+      align-self: center;
+      background-image: url('../../assets/img/ic_checked.svg');
+      cursor: pointer;
+      height: 24px;
+      margin: 0 12px 12px 0;
+      width: 24px;
+    }
+  
+    .c-categorie-favorite {
+      align-self: center;
+      height: 19px;
+      margin-right: 12px;
+      padding-bottom: 13px;
+      width: 19px;
+    }
+  
+    .c-categorie-name {
+      color: $color3;
+      font-family: 'SF UI Display Light';
+      font-size: 18px;
+    }
   }
 }
