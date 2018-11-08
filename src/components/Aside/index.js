@@ -20,13 +20,19 @@ class Aside extends Component {
 
   async componentDidMount() {
     const resSession = await fetch(
-      url.concat(getToken)
+      url.concat(getToken),
+      {
+        headers: CONSTANTS.headers
+      }
       );
     const tokenData = await resSession.json()
     const resStore = await fetch(
       url.concat(
           getStores(tokenData.token, this.state.postalCode)
-        )
+        ),
+        {
+          headers: CONSTANTS.headers
+        }
       );
     const storeData = await resStore.json();
 

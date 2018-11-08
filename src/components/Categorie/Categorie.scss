@@ -5,47 +5,80 @@ ul {
   list-style-type: none;
   margin: 0;
   padding-left: 0;
+  width: 100%;
 
   .c-categorie {
     background-color: $color1;
-    display: flex;
     font-family: 'SF UI Display Medium';
-    padding: 14px 0 0 12px;
-  
-    &:active {
+    padding-top: 16px;
+
+    &:active,
+    &.selected {
       background-color: $color5;
-  
+      
       .c-categorie-status {
         background-image: url('../../assets/img/ic_show.svg');
-        transform: rotate(180deg);
+        transform: rotate(0);
+      }
+      &:hover {
+        background-color: $color5;
+      
+        .c-categorie-status {
+          background-image: url('../../assets/img/ic_show.svg');
+          transform: rotate(0);
+        }
       }
     }
   
     &:hover {
       background-color: $color4;
+
+      .c-categorie-status {
+        background-image: url('../../assets/img/ic_show.svg');
+        transform: rotate(180deg);
+
+        &.popular {
+          background-image: url('../../assets/img/ic_checked.svg');
+          transform: rotate(0);
+        }
+      }
     }
+    
+      .c-categorie-favorite {
+        align-self: center;
+        height: 19px;
+        margin: 0 12px 0 12px;
+        padding-bottom: 19px;
+        width: 19px;
+      }
+
+      .c-categorie-icon {
+        height: 32px;
+        margin-left: 6px;
+        margin-top: -6px;
+        padding-right: 6px;
+      }
+    
+      .c-categorie-name {
+        color: $color3;
+        font-family: 'SF UI Display Light';
+        font-size: 18px;
+      }
+
+      .c-categorie-row {
+        display: flex;
+      }
   
     .c-categorie-status {
       align-self: center;
-      background-image: url('../../assets/img/ic_checked.svg');
       cursor: pointer;
       height: 24px;
-      margin: 0 12px 12px 0;
+      margin: 1px 12px 12px 0;
       width: 24px;
-    }
-  
-    .c-categorie-favorite {
-      align-self: center;
-      height: 19px;
-      margin-right: 12px;
-      padding-bottom: 13px;
-      width: 19px;
-    }
-  
-    .c-categorie-name {
-      color: $color3;
-      font-family: 'SF UI Display Light';
-      font-size: 18px;
+
+      &.popular {
+        background-image: url('../../assets/img/ic_checked.svg');
+      }
     }
   }
 }

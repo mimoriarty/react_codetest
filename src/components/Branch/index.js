@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CONSTANTS from '../../constants';
 import Categorie from '../Categorie/index';
 import logo from '../../assets/img/ic_circled_super.png';
+import favoriteUn from '../../assets/img/custom_star_un.svg';
 import './Branch.scss'
 
 const url = CONSTANTS.url;
@@ -22,7 +23,10 @@ class Branch extends Component {
     const resCategories = await fetch(
       url.concat(
           getCategories(this.props.token, this.state.selectedBranch)
-        )
+        ),
+        {
+          headers: CONSTANTS.headers
+        }
       );
     const categoriesData = await resCategories.json();
 
@@ -37,12 +41,19 @@ class Branch extends Component {
       backgroundColor: `rgb(${this.props.branch.color})`
     };
     const branchImage = this.props.branch.icon || logo;
+    const branchName = this.props.branch.name || 'none';
     const branchId = `branch-${this.props.branch.id}`;
+    const popularCategorie = {
+      name: 'Popular',
+      id: -100,
+      icon: favoriteUn,
+      categories: []
+    };
     let elements = [];
 
     if (categories) {
       for (let i = 0; i < categories.length; i++) {
-        elements.push(<Categorie key={categories[i].id} categorie={categories[i]} />);
+        elements.push(<Categorie key={categories[i].id} categorie={categories[i]} branch={branchName} />);
       }
     }
 
@@ -59,6 +70,7 @@ class Branch extends Component {
           </div>
         </div>
         <ul>
+          <Categorie key={-100} categorie={popularCategorie} />
           {elements}
         </ul>
       </div>

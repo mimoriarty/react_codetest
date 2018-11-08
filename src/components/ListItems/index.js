@@ -3,15 +3,15 @@ import './ListItems.scss'
 
 class ListItems extends Component {
   render() {
+    const categorie = this.props.categorie;
+
     return (
-      <ul>
-        <li className="c-list-item">
-          <div className="flex-horizontal-container separator">
-            <span className="c-list-item-name">Todos los productos</span>
-            <span className="c-list-item-status"></span>
-          </div>
-        </li>
-      </ul>
+      <li className="c-list-item">
+        <div className="flex-horizontal-container separator">
+          <span className="c-list-item-name">{categorie.name}</span>
+          <span className="c-list-item-status"></span>
+        </div>
+      </li>
     );
   }
 }

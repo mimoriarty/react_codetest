@@ -1,15 +1,14 @@
 @import '../../assets/styles/colors';
 @import '../../assets/styles/helpers';
 
-ul {
-  background-color: $color4;
-  list-style-type: none;
-  margin: 0;
-  padding-left: 0;
-
+.c-list-item-container {
   .c-list-item {
-    margin-left: 52px;
+    background-color: $color4;
     padding-top: 18px;
+
+    > div {
+      margin-left: 44px;
+    }
 
     &.selected {
       .c-list-item-status {
@@ -22,6 +21,7 @@ ul {
     }
 
     .c-list-item-name {
+      font-family: 'SF UI Display Light';
       padding-bottom: 18px;
     }
   }
