@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Branch from '../Branch/index';
 import CONSTANTS from '../../constants';
+import './Aside.scss'
 
 const url = CONSTANTS.url;
 const getToken = 'user/session';
@@ -44,7 +45,7 @@ class Aside extends Component {
 
   render() {
     return (
-      <aside>
+      <aside className='c-sidebar'>
         { this.state && this.state.markets.length > 0 &&
           <Branch
             postalCode={this.state.postalCode}

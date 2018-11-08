@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Aside from './components/Aside/index';
+import Shop from './components/Shop/index';
 
 
 
@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Aside />
+        <Shop />
       </div>
     );
   }
