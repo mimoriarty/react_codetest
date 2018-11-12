@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import CONSTANTS from '../../constants';
 import Categorie from '../Categorie/index';
 import logo from '../../assets/img/ic_circled_super.png';
 import favoriteUn from '../../assets/img/custom_star_un.svg';

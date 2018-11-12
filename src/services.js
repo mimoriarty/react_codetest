@@ -23,8 +23,10 @@ async function callToken () {
 
 async function execService (fn) {
   let res = await callApi(fn);
+  let counter = 0;
 
-  if (res.status === CONSTANTS.Error) {
+  while (res.status === CONSTANTS.Error || counter > 3) {
+    counter++;
     token = await callToken();
     res = await callApi(fn);
   }
