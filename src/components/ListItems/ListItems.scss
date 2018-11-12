@@ -4,6 +4,7 @@
 .c-list-item-container {
   .c-list-item {
     background-color: $color4;
+    overflow: hidden;
     padding-top: 18px;
 
     > div {

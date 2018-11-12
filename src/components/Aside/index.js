@@ -1,56 +1,21 @@
 import React, { Component } from 'react';
+
 import Branch from '../Branch/index';
-import CONSTANTS from '../../constants';
 import './Aside.scss'
 
-const url = CONSTANTS.url;
-const getToken = 'user/session';
-const getStores = (token, postalcode) => `user/postalcode?token=${token}&postalcode=${postalcode}`;
+
 const getMarketData = (markets, id) => markets.find(market => market.id.toString() === id.toString());
 
 class Aside extends Component {
-  constructor() {
-    super();
-    this.state = {
-      markets: [],
-      postalCode: 28010,
-      selectedBranch: 1,
-      token: ''
-    };
-  }
-
-  async componentDidMount() {
-    const resSession = await fetch(
-      url.concat(getToken),
-      {
-        headers: CONSTANTS.headers
-      }
-      );
-    const tokenData = await resSession.json()
-    const resStore = await fetch(
-      url.concat(
-          getStores(tokenData.token, this.state.postalCode)
-        ),
-        {
-          headers: CONSTANTS.headers
-        }
-      );
-    const storeData = await resStore.json();
-
-    this.setState({
-      token: tokenData.token,
-      markets: storeData.markets
-    });
-  }
-
   render() {
     return (
       <aside className='c-sidebar'>
-        { this.state && this.state.markets.length > 0 &&
+        { this.props && this.props.markets.length > 0 &&
           <Branch
-            postalCode={this.state.postalCode}
-            token={this.state.token}
-            branch={getMarketData(this.state.markets, this.state.selectedBranch)}/>
+            postalCode={this.props.postalCode}
+            branch={getMarketData(this.props.markets, this.props.selectedBranch)}
+            categories={this.props.categories}
+          />
         }
       </aside>
     );

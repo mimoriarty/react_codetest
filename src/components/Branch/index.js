@@ -5,38 +5,9 @@ import logo from '../../assets/img/ic_circled_super.png';
 import favoriteUn from '../../assets/img/custom_star_un.svg';
 import './Branch.scss'
 
-const url = CONSTANTS.url;
-const getCategories = (token, categoryId) => `company/categories?token=${token}&company_id=${categoryId}`;
-
 class Branch extends Component {
-  constructor() {
-    super();
-    this.state = {
-      categories: [],
-      postalCode: 28010,
-      selectedBranch: 1,
-      token: ''
-    };
-  }
-
-  async componentDidMount() {
-    const resCategories = await fetch(
-      url.concat(
-          getCategories(this.props.token, this.state.selectedBranch)
-        ),
-        {
-          headers: CONSTANTS.headers
-        }
-      );
-    const categoriesData = await resCategories.json();
-
-    this.setState({
-      categories: categoriesData.categories
-    })
-  }
-
   render() {
-    const categories = this.state.categories;
+    const categories = this.props.categories;
     const branchStyle = {
       backgroundColor: `rgb(${this.props.branch.color})`
     };
